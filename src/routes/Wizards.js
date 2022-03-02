@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getData } from '../utils/data';
 import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
 export default function Wizards() {
   const ENDPOINT = 'Wizards';
-  const [wizards, setWizards] = useState();
+  const [wizards, setWizards] = useState([]);
   
   useEffect(() => {
     let data = getLocalStorage(ENDPOINT);
@@ -20,17 +19,34 @@ export default function Wizards() {
   }, []);
 
   return (
-    <main style={{ padding: "1rem 0" }}>
-      <h2>Wizards</h2>
-    </main>
-    {wizards.map((wizard) => <Wizard key={wizard.id} wizard={wizard} />)}
+      <main style={{ padding: "1rem 0" }}>
+        <div className="container">
+          <div className="row justify-content-center text-center">
+            <h2 className='mb-4'>Wizards</h2>
+            <table className="table table-hover" style={{ maxwidth: '600px' }}>
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {wizards.map((wizard) => <Wizard key={wizard.id} />)}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
   );
 }
 
-const Wizard = ({ wizard }) => {
+const Wizard = () => {
   return (
-    <div className='col-3'>
-      {(wizard.firstName && wizard.lastName) && <h2>{wizard.firstName}{' '}{wizard.lastName}</h2>}
-    </div>
+    <tr>
+      <td>{`${wizard.firstName} ${wizard.lastName}`}</td>
+      <td>{wizard.firstName}</td>
+      <td>{wizard.lastName}</td>
+    </tr>
   )
 }
