@@ -12,13 +12,12 @@ function App() {
         }}
         >
         <Link to="/">Home</Link> |{" "}
-        <Link to="/houses">Houses</Link>
+        <Link to="/houses">Houses</Link> |{" "}
         <Link to="/elixirs">Elixirs</Link> |{" "}
         <Link to="/ingredients">Ingredients</Link> |{" "}
-        <Link to="/wizards">Wizards</Link> |{" "}
+        <Link to="/wizards">Wizards</Link>
       </nav>
       <Outlet />
-      <p>Refer to the README for some brief instructions.</p>
     </div>
   );
 }

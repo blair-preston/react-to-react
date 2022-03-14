@@ -3,7 +3,7 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
 export default function Wizards() {
   const ENDPOINT = 'Wizards';
-  const [wizards, setWizards] = useState([]);
+  const [wizards, setWizards] = useState();
   
   useEffect(() => {
     let data = getLocalStorage(ENDPOINT);

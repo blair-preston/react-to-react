@@ -20,7 +20,7 @@ export default function Houses() {
   }, []);
 
   let housesList = houses.map((house) => {
-    return <House key={house.id} house={house} />;
+    return <House house={house} />;
   });
 
   return (

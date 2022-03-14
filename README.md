@@ -10,6 +10,10 @@ Additionally, it has been littered with bugs and is intended to allow you to:
 5. See / Learn how to read and write to the local storage.
 6. See / Learn how to debug another developer's project. 
 
+There are various kinds of mistakes made throughout the app. 
+1. The first problem is going to involve the index.js file. 
+2. The second problem is going to involve the App.js file. Once you get past those two files the error messages will help guide you to the rest of the app. 
+
 ## Available Scripts
 
 In the project directory, you can run:
