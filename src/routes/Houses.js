@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { getLocalStorage, setLocalStorage } from '../utils/localStorage'; // moved this up a line
 import { getData } from '../utils/data';
-import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 
 export default function Houses() {
   const ENDPOINT = 'Houses';
@@ -19,15 +19,11 @@ export default function Houses() {
     }
   }, []);
 
-  let housesList = houses.map((house) => {
-    return <House house={house} />;
-  });
-
   return (
     <main style={{ padding: "1rem 0" }} class="container">
       <div class="row justify-content-center text-center gap-2">
         <h2>Houses</h2>
-        {housesList}
+        {houses.map((house) => <House key={house.id} house={house} />)}
       </div>
     </main>
   );

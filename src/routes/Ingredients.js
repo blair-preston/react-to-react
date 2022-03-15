@@ -6,6 +6,21 @@ export default function Ingredients() {
   const ENDPOINT = 'Ingredients';
   const [ingredients, setIngredients] = useState([]);
 
+
+// added useEffect for this page 
+  useEffect(() => {
+    let data = getLocalStorage(ENDPOINT);
+    if (data.length > 0) {
+      setIngredients(data);
+    } else {
+      getData(ENDPOINT)
+        .then((data) => {
+          setIngredients(data);
+          setLocalStorage(ENDPOINT, data);
+        })
+    }
+  }, []);
+
   return (
     <main style={{ padding: "1rem 0" }}>
       <div className="container">

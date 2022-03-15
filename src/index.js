@@ -11,8 +11,11 @@ import './index.css';
 import App from './App';
 import Ingredients from './routes/Ingredients';
 import Wizards from './routes/Wizards';
+import Houses from './routes/Houses'; // added this line
+import Elixirs from './routes/Elixirs'; // added this line
 
-const rootElement = document.getElementById("app"); // root element is in the index.html
+const rootElement = document.getElementById("root"); // root element is in the index.html 
+// Changed "app" to "root"
 
 render(
   <BrowserRouter>
