@@ -3,18 +3,18 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage'; // mov
 import { getData } from '../utils/data';
 
 export default function Houses() {
-  const ENDPOINT = 'Houses';
+  const URL = 'https://wizard-world-api.herokuapp.com/Houses';
   const [houses, setHouses] = useState([]);
   
   useEffect(() => {
-    let data = getLocalStorage(ENDPOINT);
+    let data = getLocalStorage(URL);
     if (data.length > 0) {
       setHouses(data);
     } else {
-      getData(ENDPOINT)
+      getData(URL)
         .then((data) => {
           setHouses(data);
-          setLocalStorage(ENDPOINT, data);
+          setLocalStorage(URL, data);
         })
     }
   }, []);

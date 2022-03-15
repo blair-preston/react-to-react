@@ -3,18 +3,18 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 import { getData } from '../utils/data'; // added this line to import getData
 
 export default function Wizards() {
-  const ENDPOINT = 'Wizards';
+  const URL = 'https://wizard-world-api.herokuapp.com/Wizards';
   const [wizards, setWizards] = useState([]); // added [] as initial state here
   
   useEffect(() => {
-    let data = getLocalStorage(ENDPOINT);
+    let data = getLocalStorage(URL);
     if (data.length > 0) {
       setWizards(data);
     } else {
-      getData(ENDPOINT)
+      getData(URL)
         .then((data) => {
           setWizards(data);
-          setLocalStorage(ENDPOINT, data);
+          setLocalStorage(URL, data);
         })
     }
   }, []);

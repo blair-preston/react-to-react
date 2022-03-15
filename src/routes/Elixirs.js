@@ -3,18 +3,18 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage'; // add
 import { getData } from '../utils/data'; 
 
 export default function Elixirs() {
-  const ENDPOINT = 'Elixirs';
+  const URL = 'https://wizard-world-api.herokuapp.com/Elixirs';
   const [elixirs, setElixirs] = useState([]); // added this to set the state
   
   useEffect(() => {
-    let data = getLocalStorage(ENDPOINT);
+    let data = getLocalStorage(URL);
     if (data.length > 0) {
       setElixirs(data);
     } else {
-      getData(ENDPOINT)
+      getData(URL)
         .then((data) => {
           setElixirs(data);
-          setLocalStorage(ENDPOINT, data);
+          setLocalStorage(URL, data);
         })
         // add data as parameters
     }

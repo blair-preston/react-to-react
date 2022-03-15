@@ -3,20 +3,20 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 import { getData } from '../utils/data';
 
 export default function Ingredients() {
-  const ENDPOINT = 'Ingredients';
+  const URL = 'https://wizard-world-api.herokuapp.com/Ingredients';
   const [ingredients, setIngredients] = useState([]);
 
 
 // added useEffect for this page 
   useEffect(() => {
-    let data = getLocalStorage(ENDPOINT);
+    let data = getLocalStorage(URL);
     if (data.length > 0) {
       setIngredients(data);
     } else {
-      getData(ENDPOINT)
+      getData(URL)
         .then((data) => {
           setIngredients(data);
-          setLocalStorage(ENDPOINT, data);
+          setLocalStorage(URL, data);
         })
     }
   }, []);
