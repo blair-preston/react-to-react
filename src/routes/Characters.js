@@ -41,6 +41,7 @@ const Character = ({ character }) => {
           <div><strong>Hogwart Student:</strong> {character.hogwartsStudent}</div>
           <div><strong>Actor:</strong> {character.actor}</div>
           <div><strong>Wand Core:</strong> {character.wand.core}</div>
+          <div><img style={{ width: "10rem", height: "15rem"}} src={character.image}></img> </div>
         </div>
       </div>
     )
